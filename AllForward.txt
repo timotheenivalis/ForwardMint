@@ -1,0 +1,60 @@
+%%%Demographic parameters%%%
+demesize=20 //number in individuals
+dimx=50
+dimy=10
+Xlimit=25//doit etre egal a dimX si un seul habitat
+HabitatSlideBegin=1
+HabitatSlideEnd=26// if ==0 no habitat change
+HabitatSlideDepth=25// if ==0 no habitat change
+generationnumber=1000
+AllopatryLast=80000  //in generation
+
+%%%Sampling parameters%%%
+DemeSamplingRatio=1.
+IndMeanSample=100
+
+%%%Dispersion parameters%%%
+dispmax=5
+mFemale=1e-001,1e-001
+geomFemale=0.1
+mMale=0.1
+geomMale=0.1
+EdgeEffects=true
+
+%%%Reproduction parameters%%%
+Swamping=true
+FitnessNormal=1.0
+fitnessmaladaptation=0.9, 1.0
+fitnesshybridfemale=0.9, 1.
+fitnesshybridmale=0.9, 1.
+fitnessMaladaptMt=1.0//fitness of the bad strand (habitat 1)
+HybridNb=-1//-1==Infini
+AcceptRates=1,1,1,1,1,1,1,1,1
+HomogamyAllLoci=false
+ChoosyFemale=0.5//rate of females which starts the couple formation
+
+%%%Markers parameters%%%
+MuRate=5e-004
+AutLociNumber=20
+InterRecombiRate=0.5 //must <= 0.5
+IntraRecombiRate=0.5 //must <= 0.5
+
+%%%Simulation parameters%%%
+RunNumber=10
+MigRatesCorrection=true
+Pause=Final
+LowHybridBound=50 //ATTENTION, en cas d'invasion, penser a regler
+HighHybridBound=0
+SamplingSeed=407
+
+%%%Writing parameters%%%
+WriteIdMatrix=false
+WriteIdentitiesProba=false
+WriteFstHe=false
+WriteGenepopFile=false //pop=demes
+WriteGenepopIntrog=false //pop=taxa
+WriteGenepopOrigin=false //pop= deme, alleles=taxa of origin
+WriteGenepopAlsoPreContact=false
+WriteIntrogProfile=true
+WriteIntrogStats=true
+WritePeriod=20
