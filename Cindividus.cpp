@@ -1,14 +1,14 @@
-//    This is the source code for BiFit version 0.2
-//    BiFit simulates secondary contacts between two taxa (or species,
-//    depending on your favorite species definition).
-//    The software outputs introgression statistics for autosomal,
+//    This is the source code for ForwardMint version 0.3
+//    ForwardMint simulates secondary contacts between two taxa (or species,
+//    depending on definitions).
+//    The software outputs introgression statistics and profiles for autosomal,
 //    gonosomal and mitochondrial markers. Processes considered include
 //    spatial structure with isolation by distance, multi-locus local adaptation,
 //    reduced hybrid survival, recombination, mitochondrial selection,
-//    sex-specific dispersal, sex-specific hybrid survival,
-//    spatial invasion and many others.
+//    sex-specific dispersal, sex-specific hybrid survival, asymmetric mating,
+//    spatial invasion, swamping.
 //
-//	  Copyright (C) 2012-2016  Timothée Bonnet - timothee.bonnet@ieu.uzh.ch
+//	  Copyright (C) 2012-2021  Timothée Bonnet - timotheebonnetc@gmail.com
 //
 //    This program is free software: you can redistribute it and/or modify
 //    it under the terms of the GNU General Public License as published by
