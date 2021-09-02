@@ -687,6 +687,14 @@ int FMigrations(vector<vector<vector<double> > >& MigRates)//corrige les taux de
                 exit(-1);
             }
     }
+    if(Swamping==true && (mFemale[0]*mMale[0])==0 && HabitatSlideEnd!=0)
+    {
+        cerr << "Swamping==true && (mFemale[0]*mMale[0])==0 && HabitatSlideEnd!=0"<<endl;
+        cerr << "There cannot be any parents in the newly invaded area!"<<endl;
+        cerr << "Remove either swamping, invasion, or null migration rate"<<endl;
+        if (cinGetOnError==true) cin.get();
+         exit(-1);
+    }
     //vector<long double> TEST;
     //TEST.resize(DimX+1);
     ofstream ImigRates("ImigrationRates.txt");
@@ -723,7 +731,6 @@ int FMigrations(vector<vector<vector<double> > >& MigRates)//corrige les taux de
                         norm+=(*SexTaxonMigRates)[a];
                     }
                 norm*=2.;//must egal 1
-
                 if (MigRatesCorrection==true) // si on le souhaite, on corrige ces taux de migration pour la 2D, et le taux de migration maximal prend la valeur d'entree m
                     {
                         long double maxcumul(0.);
@@ -814,21 +821,28 @@ int FMigrations(vector<vector<vector<double> > >& MigRates)//corrige les taux de
                                             }
                                     }
                             }
-                        tmp=m/maxcumul;
-                        if(DimY>1)//2D
-                            {
-                                tmp=sqrt(tmp);
-                            }
+
+                        if(maxcumul>0)
+                        {
+                            tmp=m/maxcumul;
+                            if(DimY>1)//2D
+                                {
+                                    tmp=sqrt(tmp);
+                                }
+
+                            for(int i(0);i<=DispMax;i++)
+                                {
+                                    (*SexTaxonMigRates)[i]*=tmp;
+                                }
+                        }//else normalisation is pointless
+
                         vector<vector<long double> > MigCheck;
                         MigCheck.resize(DimX);
                         for (unsigned int i(0);i<MigCheck.size();i++)
                             {
                                 MigCheck[i].resize(DimY);
                             }
-                        for(int i(0);i<=DispMax;i++)
-                            {
-                                (*SexTaxonMigRates)[i]*=tmp;
-                            }
+
                             //check
                         double migra0=(*SexTaxonMigRates)[0];//constant, should be the final non-immigration rate
                         if(DimY>1)//2D
@@ -919,6 +933,8 @@ int FMigrations(vector<vector<vector<double> > >& MigRates)//corrige les taux de
                     }//end if (MigRatesCorrection==true)
                 }//end for (unsigned int taxon(0);taxon<2;taxon++)
         }//end for (unsigned int sex(0);sex<2;sex++)
+
+
      return 0;
  }//end FMigration()
 

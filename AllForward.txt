@@ -15,7 +15,7 @@ IndMeanSample=100
 
 %%%Dispersion parameters%%%
 dispmax=5
-mFemale=1e-001,1e-001
+mFemale=0, 1e-001
 geomFemale=0.1
 mMale=0.1
 geomMale=0.1
